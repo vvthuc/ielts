@@ -1,0 +1,173 @@
+#setting-error-tgmpa{
+	display: none;
+}
+.toplevel_page_cfdb7-list{
+	display: none;
+}
+.wp-core-ui .attachment .thumbnail img{
+	-webkit-object-fit: cover;
+	-moz-object-fit: cover;
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+.rwmb-meta-box{
+	/* border-top: solid 1px #d1d1d1; */
+	padding-top: 10px;
+	margin-top: 10px;
+}
+.term-php .rwmb-label{
+	padding-bottom: 0;
+	padding-top: 0;
+}
+.term-php .rwmb-input{
+	padding-top: 5px;
+}
+body .hc-normal{
+	display: block;
+}
+body .hc-normal .rwmb-label{
+	/* width: 100%;
+	display: block; */
+	margin-top: 8px;
+}
+body .hc-normal .rwmb-image-item{
+	width: auto;
+}
+body .hc-normal .rwmb-label ~ .rwmb-input{
+	width: auto !important;
+	max-width: 75%;
+	min-width: 50px;
+}
+body .hc-normal .rwmb-image-item.thumbnail{
+	width: auto;
+}
+body .hc-normal .attachment .thumbnail{
+	position: static;
+}
+body .hc-normal .attachment-preview:before{
+	content: none;
+}
+body .hc-normal .attachment .thumbnail .centered{
+	position: static;
+	-webkit-transform: translate(none);
+	-ms-transform: translate(none);
+	transform: translate(none);
+}
+body .hc-normal .attachment .thumbnail .centered img{
+	position: static;
+	-webkit-transform: translate(none);
+	-ms-transform: translate(none);
+	transform: translate(none);
+	height: auto;
+	width: auto;
+	max-width: 100%;
+	display: block;
+	max-height: 160px;
+}
+body .hc-center{
+	display: block;
+}
+body .hc-center .rwmb-label{
+	width: 100%;
+	display: block;
+	margin-bottom: 8px;
+}
+body .hc-center .rwmb-image-item{
+	float: none;
+	width: auto;
+}
+body .hc-center .rwmb-label ~ .rwmb-input{
+	width: 150px !important;
+}
+body .hc-center .rwmb-image-item.thumbnail{
+	width: auto;
+}
+body .hc-center .attachment .thumbnail{
+	position: static;
+}
+body .hc-center .attachment-preview:before{
+	content: none;
+}
+body .hc-center .attachment .thumbnail .centered{
+	position: static;
+	-webkit-transform: translate(none);
+	-ms-transform: translate(none);
+	transform: translate(none);
+}
+body .hc-center .attachment .thumbnail .centered img{
+	position: static;
+	-webkit-transform: translate(none);
+	-ms-transform: translate(none);
+	transform: translate(none);
+	height: auto;
+	width: auto;
+	max-width: 100%;
+	display: block;
+	max-height: 150px;
+}
+.hc-lang textarea, .hc-lang input[type="text"], .hc-lang input[type="email"], .hc-lang .mce-panel iframe{
+	border-left:  solid 3px blue;
+}
+.h_cover_image{
+	text-align: center;
+}
+.h_cover_image img{
+	max-width: 100%;
+}
+.widget-inside .widget-content p{
+	margin:5px 0;
+}
+/*Promotion*/
+/*Custom Checkbox*/
+.category_checkbox,.post_checkbox{
+	text-align: center;
+}
+th.column-field_id, td.column-field_id,
+th.column-field_moi, td.column-field_moi,
+th.column-field_bc, td.column-field_bc,
+th.column-field_featured, td.column-field_featured,
+th.column-is_promo_news, td.column-is_promo_news,
+th.column-field_off, td.column-field_off,
+th.column-post_views, td.column-post_views,
+th.column-field_ord, td.column-field_ord,td.column-field_ord input
+{
+	width: 50px;
+}
+.rwmb-field {
+    display: flex !important;
+}
+#cau-hinh-hien-thi .inside h2 {
+	display: none;
+}
+.rwmb-field.rwmb-wysiwyg-wrapper {
+	display: block !important;
+}
+.rwmb-field.rwmb-wysiwyg-wrapper .rwmb-label,
+.rwmb-field.rwmb-wysiwyg-wrapper .rwmb-input {
+	width: 100%;
+}
+.rwmb-field.rwmb-group-wrapper {
+	margin-top: 30px;
+}
+#cau-hinh-thong-tin-chi-tiet-dich-vu .inside .rwmb-group-wrapper {
+	display: block !important;
+	margin-top: 0px;
+}
+#cau-hinh-thong-tin-chi-tiet-dich-vu .inside .rwmb-group-wrapper .rwmb-label {
+	width: 100%;
+	margin-bottom: 30px;
+}
+#cau-hinh-thong-tin-chi-tiet-dich-vu .inside .rwmb-group-wrapper .rwmb-input {
+	width: 100%;
+}
+#cau-hinh-thong-tin-chi-tiet-dich-vu .inside .rwmb-group-wrapper .rwmb-input .rwmb-text-wrapper {
+	display: block !important;
+}
+#cau-hinh-thong-tin-chi-tiet-dich-vu .inside .rwmb-group-wrapper .rwmb-input .rwmb-text-wrapper .rwmb-label,
+#cau-hinh-thong-tin-chi-tiet-dich-vu .inside .rwmb-group-wrapper .rwmb-input .rwmb-wysiwyg-wrapper .rwmb-label {
+	margin-bottom: 15px;
+}
+.ord .post_text input{
+	width: 100%;
+}
