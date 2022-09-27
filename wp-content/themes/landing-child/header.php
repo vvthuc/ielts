@@ -31,7 +31,7 @@
 						md: "768px",
 						lg: "1024px",
 						xl: "1300px",
-						"2xl": "1330px",
+						"2xl": "1300px",
 					},
 					container: {
 						center: true,
@@ -48,15 +48,16 @@
 	</script>
 </head>
 
-<body class="leading-snug">
-	<header class="sticky top-0 left-0 right-0 z-10 bg-[#fff] lg:py-0 md:py-5 py-3">
+<body class="leading-snug max-w-[1920px] mx-auto">
+	<header id="header" class="transition-all fixed top-0 left-0 right-0 z-10 bg-[#fff] lg:py-0 xl:py-0 md:py-3 py-2 z-[100]">
 		<div class="container mx-auto px-3 max-w-[87.5rem] flex items-center">
 			<a href="<?php echo site_url(); ?>" title="<?php echo bloginfo(); ?>" class="inline-block logo w-[4.25rem] h-[2.375rem] mr-auto">
-				<img src="<?php echo mb_image("logo"); ?>" alt="<?php echo bloginfo(); ?>" class="img-full" />
+				<img src="<?php echo mb_image("logo"); ?>" alt="<?php echo bloginfo(); ?>" class="w-full" />
 			</a>
-			<button class="btn-menu md:hidden inline-flex items-center justify-center border border-[1px] border-[#ebebeb] p-3 rounded rounded-[0.3125rem] bg-yellow">
+			<button class="btn-menu lg:hidden inline-flex items-center justify-center border border-[1px] border-[#ebebeb] p-3 rounded rounded-[0.3125rem] bg-yellow">
 				<i class="fa fa-bars" aria-hidden="true"></i>
 			</button>
+			<div class="overlay"></div>
 			<div class="box-menu md:inline-flex block items-center ml-auto">
 				<div class="menu">
 					<?php if (has_nav_menu('primary-menu')) : ?>

@@ -21,6 +21,36 @@ body {
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+.banner .title-top {
+    transition-delay: 0.5s;
+}
+
+.banner .short {
+    transition-delay: 0.75s;
+}
+
+.banner .btn {
+    transition-delay: 1s;
+}
+
+.banner .btn,
+.banner .title-top,
+.banner .short {
+    opacity: 0;
+    -webkit-transition-duration: .75s;
+    transition-duration: .75s;
+    -webkit-transform: translateY(4.375rem);
+    transform: translateY(4.375rem)
+}
+
+.banner .swiper-slide.swiper-slide-active .btn,
+.banner .swiper-slide.swiper-slide-active .title-top,
+.banner .swiper-slide.swiper-slide-active .short {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+}
+
 .section-teacher .swiper-teacher-thumb .swiper-slide-thumb-active .teacher {
     border: solid 3px #ffd602 !important;
 }
@@ -38,15 +68,23 @@ body {
     margin-bottom: 0.7813rem;
 }
 
+.form-action input[type='submit']:hover,
+.form-action input[type='submit']:focus {
+    background-color: #fff;
+    color: #252525;
+}
+
 .form-action input[type='submit'] {
     background: #00508f;
     color: #fff;
     padding: 0.625rem 1.25rem;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s all 0s;
 }
 
 .wpcf7 form .wpcf7-response-output {
-    margin-left: 0;
+    margin-left: 0 !important;
     background: #fff;
     padding: 0.4375rem 0.625rem;
 }
@@ -211,6 +249,39 @@ body {
     opacity: 0;
 }
 
+.item-video .play-video:after {
+    position: absolute;
+    z-index: 1;
+    content: '';
+    background: #0000005e;
+    inset: 0;
+    opacity: 1;
+    transition: 0.3s all 0s;
+}
+
+.item-video .play-video.play:after {
+    display: none;
+}
+
+.item-video svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(0) scale(0);
+    opacity: 0;
+    transition: 0.6s all 0s;
+    z-index: 2;
+}
+
+.item-video:hover svg, .item-video:focus svg {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotateZ(360deg) scale(1);
+}
+
+.item-video:hover .play-video:after, .item-video:focus .play-video:after {
+    opacity: 0;
+}
+
 .item-step:after {
     content: "";
     position: absolute;
@@ -233,22 +304,46 @@ body {
     flex-direction: row;
 }
 
+.item-video .play-video iframe {
+    max-height: 14.6875rem;
+}
+
 .swiper-pagi.blue>* {
     background-color: #00508f;
 }
 
+.teacher:hover img {
+    transform: scale(1.2);
+}
+
+.teacher {
+    overflow: hidden;
+}
+
 @media(min-width:1025px) {
+    .menu ul li:hover>ul {
+        transform: translateY(0);
+    }
+
     .menu ul li ul {
         position: absolute;
         top: 100%;
         left: 0;
-        background: #fff;
-        width: 18.75rem;
+        background: #00508f;
+        color: #fff;
+        width: 15.75rem;
         z-index: 1;
         opacity: 0;
         visibility: hidden;
         pointer-events: all;
         transition: 0.3s all 0s;
+        transform: translateY(15px);
+    }
+
+    .menu ul li ul ul a,
+    .menu ul li ul a {
+        color: #fff !important;
+        background-color: #00508f;
     }
 
     .menu ul li ul ul {
@@ -266,7 +361,7 @@ body {
     }
 
     .menu ul li ul a {
-        padding: 0.4375rem 0.625rem;
+        padding: 0.7375rem 0.625rem;
     }
 
     .menu ul li ul li:not(:last-child) a {
@@ -306,8 +401,12 @@ body {
 }
 
 @media(max-width:1025px) {
+    .box-menu .menu>ul {
+        overflow-x: hidden;
+    }
+
     .show-menu header {
-        position: static;
+        position: fixed;
     }
 
     .box-menu .menu li {
@@ -339,6 +438,11 @@ body {
         visibility: hidden;
         pointer-events: none;
         transition: 0.3s all 0s;
+        position: fixed;
+        inset: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
     }
 
     .overlay.active {
@@ -400,5 +504,31 @@ body {
 
     .box-menu li ul a {
         padding-left: 0.9375rem;
+    }
+}
+
+@media(max-width:1651px) {
+    html, body {
+        font-size: 15px;
+    }
+
+    .menu>ul>li>a {
+        padding: 1.185rem 0.5rem;
+    }
+}
+
+@media(max-width:1441px) {
+    html, body {
+        font-size: 14px;
+    }
+}
+
+@media(max-width:768px) {
+    .section-teacher .swiper-teacher-thumb .swiper-slide-thumb-active .teacher {
+        border: transparent!important;
+    }
+
+    .item-step:after {
+        display: none;
     }
 }

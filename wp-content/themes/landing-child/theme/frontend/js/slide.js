@@ -30,19 +30,16 @@ var SLIDER = (function () {
             },
             breakpoints: {
                 320: {
-                    slidesPerView: 3,
-                    spaceBetween: 10,
-                    centeredSlides: true,
-                    centeredSlidesBounds: true,
+                    slidesPerView: 1.5,
+                    spaceBetween: 15,
+                    autoHeight: false,
                     grid: {
                         rows: 1,
                     },
                 },
                 576: {
-                    slidesPerView: 3,
+                    slidesPerView: 2.5,
                     spaceBetween: 15,
-                    centeredSlides: true,
-                    centeredSlidesBounds: true,
                     grid: {
                         rows: 1,
                     },
@@ -50,8 +47,6 @@ var SLIDER = (function () {
                 768: {
                     slidesPerView: 3,
                     spaceBetween: 15,
-                    centeredSlides: true,
-                    centeredSlidesBounds: true,
                     grid: {
                         rows: 1,
                     },
@@ -61,8 +56,6 @@ var SLIDER = (function () {
                         rows: 2,
                     },
                     slidesPerView: 3,
-                    centeredSlides: false,
-                    centeredSlidesBounds: false,
                 },
             },
             spaceBetween: 0,
@@ -92,11 +85,11 @@ var SLIDER = (function () {
     var _initVideo = function () {
         const slideVideo = new Swiper(".swiper-video", {
             slidesPerView: 3,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-            },
+            // autoplay: {
+            //     delay: 3000,
+            //     disableOnInteraction: false,
+            //     pauseOnMouseEnter: true,
+            // },
             navigation: {
                 nextEl: ".section-video .swiper-next",
                 prevEl: ".section-video .swiper-prev",
@@ -130,12 +123,12 @@ var SLIDER = (function () {
                     grid: {
                         rows: 2,
                     },
-                    centeredSlidesBounds: false,
+                    centeredSlidesBounds: true,
                 },
             },
             spaceBetween: 0,
             pagination: {
-                el: ".swiper-video .swiper-pagi",
+                el: ".section-video .swiper-pagi",
                 clickable: true,
             },
         });
@@ -150,8 +143,55 @@ var SLIDER = (function () {
         itemFaq.click(function (event) {
             event.preventDefault();
             var _content = $(this).children(".s-content");
-            _content.slideDown(300);
+            _content.slideToggle(300);
             contentFaq.not(_content).slideUp(300);
+        });
+    };
+    var _initHover = function () {
+        var itemBuild = $(".section-start-build .item");
+        var imgFull = $(".section-start-build .item-large .img-full");
+        var imgShort = $(".section-start-build .item-large .short");
+        itemBuild.hover(function () {
+            var _text = $(this).attr("data-content");
+            var _img = $(this).attr("data-img");
+            imgShort.text(_text);
+            imgFull.attr("src", _img);
+        });
+    };
+    var fixedMenu = function () {
+        optionMenu = {
+            hideOnScrollDown: false,
+            delayShowOnScrollTop: 0,
+        };
+        hideOnScrollDown = optionMenu.hideOnScrollDown || false;
+        delayShowOnScrollTop = optionMenu.delayShowOnScrollTop || 0;
+
+        var header = $("#header");
+        var headerHeight = header.outerHeight();
+        var headerTop = header.outerHeight();
+
+        var bodyPage = $("body");
+        var width_ = window.innerWidth;
+        $("body").css("padding-top", headerHeight + `px`);
+        header.addClass("fixed");
+
+        var lastScrollTop = 0;
+        window.addEventListener("scroll", function () {
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop) {
+                if (lastScrollTop > headerHeight) {
+                    header.css("top", `-` + headerTop + `px`);
+                }
+            } else {
+                header.css("top", "0px");
+            }
+            if (st > headerHeight) {
+                header.addClass("scroll");
+            } else {
+                header.removeClass("scroll");
+            }
+
+            lastScrollTop = st <= 0 ? 0 : st;
         });
     };
     return {
@@ -161,7 +201,9 @@ var SLIDER = (function () {
             _initVideo();
             _initPartner();
             _initFaq();
+            _initHover();
             loadEffectWow();
+            fixedMenu();
         },
     };
 })();
@@ -273,3 +315,35 @@ var TAB_PANEL = (function () {
     };
 })();
 TAB_PANEL._();
+
+var VIDEO = (function () {
+    function youtubeParser(url) {
+        var regExp =
+            /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+        var match = url.match(regExp);
+        return match && match[7].length == 11 ? match[7] : false;
+    }
+
+    var playYoutube = function () {
+        var btnVideo = $(".play-video");
+        btnVideo.click(function (event) {
+            event.preventDefault();
+            if ($(this).children("iframe").length == 0) {
+                $(this).addClass("play");
+                var html =
+                    '<iframe width="100%" height="320" src="https://www.youtube.com/embed/' +
+                    youtubeParser($(this).attr("href")) +
+                    '?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                $(this).html(html);
+            }
+        });
+    };
+    return {
+        _: function () {
+            playYoutube();
+        },
+    };
+})();
+document.addEventListener("DOMContentLoaded", function () {
+    VIDEO._();
+});
