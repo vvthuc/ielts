@@ -48,7 +48,7 @@
 		</div>
 		<div class="container mx-auto px-3">
 			<div class="flex flex-wrap gap-[0.2688rem]">
-				<div class="col md:flex-[0_0_59%] flex-[0_0_100%] flex md:gap-3 gap-2 flex-wrap">
+				<div class="col lg:flex-[0_0_59%] flex-[0_0_100%] flex lg:gap-3 gap-2 flex-wrap">
 					<?php $imgFull = ""; ?>
 					<?php foreach ($steps as $k => $step) : ?>
 						<?php $imgsIconFull = _cget('step_img_desktop', $step, []); ?>
@@ -69,7 +69,7 @@
 								<?php echo _cget('step_short_desc', $step); ?>
 							</div>
 						</div>
-						<div class="content <?php echo $k == 0 ? 'lg:hidden block' : 'hidden' ?> item-large pt-[2rem] px-[1.225rem] pb-[1rem] bg-yellow lg:h-full" ata-wow-duration="1s" data-wow-delay="0.5s">
+						<div class="w-full content <?php echo $k == 0 ? 'md:hidden block' : 'hidden' ?> item-large pt-[2rem] px-[1.225rem] pb-[1rem] bg-yellow lg:h-full" ata-wow-duration="1s" data-wow-delay="0.5s">
 							<div class="short xl:text-[1.5rem] text-[1.25rem] lg:mb-5 mb-3">
 								<?php echo _cget('step_full_desc', $step); ?>
 							</div>
@@ -82,7 +82,7 @@
 						</div>
 					<?php endforeach; ?>
 				</div>
-				<div class="col md:flex-[0_0_39%] flex-[0_0_100%] lg:block hidden">
+				<div class="col lg:flex-[0_0_39%] flex-[0_0_100%] lg:block hidden">
 					<div class="item-large pt-[2rem] px-[1.225rem] pb-[1rem] bg-yellow h-full" ata-wow-duration="1s" data-wow-delay="0.5s">
 						<div class="short xl:text-[1.5rem] text-[1.25rem] lg:mb-5 mb-3">
 							<?php echo _cget('step_full_desc', $steps[0]); ?>
@@ -116,7 +116,7 @@
 							</p>
 						</div>
 					</div>
-					<div class="content bg-yellow flex flex-wrap relative z-1 item-tab lg:p-[3.4375rem] md:p-[2.4375rem] p-[1.4375rem] justify-between <?php echo $k == 0 ? 'lg:hidden flex' : 'hidden' ?>">
+					<div class="<?php echo $k == 0 ? 'md:hidden flex' : 'hidden' ?> content bg-yellow flex flex-wrap relative z-1 item-tab lg:p-[3.4375rem] md:p-[2.4375rem] p-[1.4375rem] justify-between">
 						<div class="col lg:flex-[0_0_60%] flex-[0_0_100%]">
 							<div class="image">
 								<?php $imgsFull = _cget('why_img_desktop', $why, []); ?>
@@ -148,7 +148,7 @@
 					</div>
 				<?php endforeach; ?>
 			</div>
-			<div class="tabs bg-[#FAD52C] panel lg:block hidden">
+			<div class="tabs bg-[#FAD52C] panel md:block hidden">
 				<?php foreach ($whys as $k => $why) : ?>
 					<div data-state="<?php echo $k == 0 ? 'true' : 'false' ?>" id="step-<?php echo $k; ?>" class="tab-panel flex flex-wrap relative z-1 item-tab lg:p-[3.4375rem] md:p-[2.4375rem] p-[1.4375rem] justify-between <?php echo $k == 0 ? 'flex' : 'hidden' ?>">
 						<div class="col lg:flex-[0_0_60%] flex-[0_0_100%]">
@@ -294,7 +294,7 @@
             ">
 	<div class="container mx-auto px-3">
 		<div class="grid grid-cols-2 mx-auto">
-			<div class="md:col-span-1 col-span-2 md:mb-0 mb-3 max-w-[31.25rem]">
+			<div class="lg:col-span-1 col-span-2 lg:mb-0 mb-3 lg:max-w-[31.25rem]">
 				<p class="md:text-[1.25rem] text-base text-white mb-1 font-bold roboc md:text-left text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
 					<?php echo mb_option("title_sale_1"); ?>
 				</p>
@@ -305,11 +305,11 @@
 					<?php echo mb_option("desc_sale"); ?>
 				</div>
 			</div>
-			<div class="md:col-span-1 col-span-2 max-w-[29.6875rem] md:ml-auto">
+			<div class="lg:col-span-1 col-span-2 max-w-[29.6875rem] mx-auto lg:ml-auto">
 				<div class="text-sale md:text-base text-[1.5rem] text-white md:text-right text-center leading-snug relative z-1 wow bounceIn">
 					Học phí chỉ từ
-					<span class="wow bounceIn lg:text-[3.275rem] md:text-[1.5rem] text-[3.25rem] font-bold text-[#fad15e] roboc md:inline-block block"><?php echo mb_option("price_sale"); ?></span>
-					<span class="wow bounceIn md:text-base text-sm sm:absolute lg:static top-[2rem] right-[1.5rem] z-1">đ/tháng</span>
+					<span data-content="<?php echo mb_option("price_sale"); ?>" class="price wow bounceIn lg:text-[3.275rem] md:text-[1.5rem] text-[3.25rem] font-bold text-[#fad15e] roboc md:inline-block block"><?php echo mb_option("price_sale"); ?></span>
+					<span class="wow bounceIn md:text-base text-sm sm:absolute lg:static lg:top-[2rem] lg:right-[1.5rem] top-[1.25rem] right-[-1rem] z-1">đ/tháng</span>
 				</div>
 				<a href="<?php echo site_url(); ?>/#contact-now" title="NHẬN TƯ VẤN LỘ TRÌNH HỌC" class="border-transparent hover:bg-white hover:border-yellow hover:text-yellow transition-all wow bounceIn block w-fit p-[0.5688rem] px-5 rounded rounded-[1.875rem] text-white bg-[#ffac00] shadow-lg mx-auto mt-4 font-bold roboc">
 					NHẬN TƯ VẤN LỘ TRÌNH HỌC

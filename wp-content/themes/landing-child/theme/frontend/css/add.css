@@ -21,6 +21,13 @@ body {
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+.price {
+    position: relative;
+    z-index: 1;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ff5722;
+}
+
 .banner .title-top {
     transition-delay: 0.5s;
 }
@@ -401,6 +408,10 @@ body {
 }
 
 @media(max-width:1025px) {
+    header .menu>ul>li>a {
+        padding: 0.625rem 0.625rem;
+    }
+
     .box-menu .menu>ul {
         overflow-x: hidden;
     }
@@ -416,8 +427,8 @@ body {
 
     .box-menu .menu li i {
         position: absolute;
-        top: 3px;
-        right: 3px;
+        top: 1px;
+        right: 1.5px;
         width: 35px;
         height: 35px;
         display: flex;
@@ -482,7 +493,7 @@ body {
         max-height: 100vh;
     }
 
-    .box-menu li a {
+    html header .box-menu li a {
         color: #252525;
         display: block;
         padding: 0.625rem 0.625rem;
@@ -525,7 +536,7 @@ body {
 
 @media(max-width:768px) {
     .section-teacher .swiper-teacher-thumb .swiper-slide-thumb-active .teacher {
-        border: transparent!important;
+        border: transparent !important;
     }
 
     .item-step:after {

@@ -196,7 +196,7 @@ var SLIDER = (function () {
     };
     var _toggleContent = function () {
         var items = $(".item-toogle");
-        if ($(window).width() < 1024) {
+        if ($(window).width() < 768) {
             items.click(function () {
                 var _content = $(this).next();
                 _content.slideToggle(300);
