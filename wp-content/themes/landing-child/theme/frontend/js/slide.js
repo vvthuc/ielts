@@ -196,10 +196,12 @@ var SLIDER = (function () {
     };
     var _toggleContent = function () {
         var items = $(".item-toogle");
-        items.click(function () {
-            var _content = $(this).next();
-            _content.slideToggle(300);
-        });
+        if ($(window).width() < 1024) {
+            items.click(function () {
+                var _content = $(this).next();
+                _content.slideToggle(300);
+            });
+        }
     };
     return {
         _: function () {
