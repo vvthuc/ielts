@@ -194,6 +194,13 @@ var SLIDER = (function () {
             lastScrollTop = st <= 0 ? 0 : st;
         });
     };
+    var _toggleContent = function () {
+        var items = $(".item-toogle");
+        items.click(function () {
+            var _content = $(this).next();
+            _content.slideToggle(300);
+        });
+    };
     return {
         _: function () {
             _initSlide();
@@ -202,6 +209,7 @@ var SLIDER = (function () {
             _initPartner();
             _initFaq();
             _initHover();
+            _toggleContent();
             loadEffectWow();
             fixedMenu();
         },

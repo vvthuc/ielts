@@ -43,7 +43,7 @@
 <?php $steps = rwmb_meta('steps-item', array('object_type' => 'setting'), 'my_options'); ?>
 <?php if (!empty($steps)) : ?>
 	<section class="section-start-build mb-3">
-		<div class="banner mb-3 wow fadeIn">
+		<div class="banner container mb-3 wow fadeIn">
 			<img src="<?php echo mb_image("start_img_desktop"); ?>" class="w-full" alt="Bạn không biết bắt đầu như thế nào ?" />
 		</div>
 		<div class="container mx-auto px-3">
@@ -58,7 +58,7 @@
 							<?php endforeach; ?>
 						<?php endif; ?>
 
-						<div data-wow-duration="1.5s" data-wow-delay="<?php echo $k * 0.125; ?>s" class="wow flipInY item md:p-[1.25rem] md:flex-[0_0_48.50%] flex-[0_0_100%] p-[0.75rem] md:bg-[#FDF2B2] bg-blue hover:bg-[#FDD501]" data-img="<?php echo $imgFull ?? ""; ?>" data-content="<?php echo _cget('step_full_desc', $step); ?>" data-content="<?php echo $imgFull ?? ''; ?>">
+						<div data-wow-duration="1.5s" data-wow-delay="<?php echo $k * 0.125; ?>s" class="wow flipInY item item-toogle md:p-[1.25rem] md:flex-[0_0_48.50%] flex-[0_0_100%] p-[0.75rem] md:bg-[#FDF2B2] bg-blue hover:bg-[#FDD501]" data-img="<?php echo $imgFull ?? ""; ?>" data-content="<?php echo _cget('step_full_desc', $step); ?>" data-content="<?php echo $imgFull ?? ''; ?>">
 							<?php $imgsIcon = _cget('step_icon_desktop', $step, []); ?>
 							<?php if (!empty($imgsIcon)) : ?>
 								<?php foreach ($imgsIcon as $k2 => $img) : ?>
@@ -69,9 +69,20 @@
 								<?php echo _cget('step_short_desc', $step); ?>
 							</div>
 						</div>
+						<div class="content <?php echo $k == 0 ? 'block' : 'hidden' ?> item-large pt-[2rem] px-[1.225rem] pb-[1rem] bg-yellow lg:h-full wow fadeInRight" ata-wow-duration="1s" data-wow-delay="0.5s">
+							<div class="short xl:text-[1.5rem] text-[1.25rem] lg:mb-5 mb-3">
+								<?php echo _cget('step_full_desc', $step); ?>
+							</div>
+							<?php $imgsIcon = _cget('step_img_desktop', $step, []); ?>
+							<?php if (!empty($imgsIcon)) : ?>
+								<?php foreach ($imgsIcon as $k2 => $img) : ?>
+									<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_step', $step); ?>" class="img-full object-contain md:w-[32.5rem] md:h-[32.5rem] block mx-auto" />
+								<?php endforeach; ?>
+							<?php endif; ?>
+						</div>
 					<?php endforeach; ?>
 				</div>
-				<div class="col md:flex-[0_0_39%] flex-[0_0_100%]">
+				<div class="col md:flex-[0_0_39%] flex-[0_0_100%] lg:block hidden">
 					<div class="item-large pt-[2rem] px-[1.225rem] pb-[1rem] bg-yellow h-full wow fadeInRight" ata-wow-duration="1s" data-wow-delay="0.5s">
 						<div class="short xl:text-[1.5rem] text-[1.25rem] lg:mb-5 mb-3">
 							<?php echo _cget('step_full_desc', $steps[0]); ?>
@@ -91,13 +102,13 @@
 <?php $whys = rwmb_meta('whys-item', array('object_type' => 'setting'), 'my_options'); ?>
 <?php if (!empty($whys)) : ?>
 	<section class="section-why bg-[#f2f2e8] pb-[3.75rem]">
-		<div class="banner wow fadeIn">
+		<div class="banner container wow fadeIn">
 			<img src="<?php echo mb_image("why_img_desktop"); ?>" class="w-full" alt="Tại sao chọn chúng tôi" />
 		</div>
 		<div class="container mx-auto px-3">
 			<div class="flex flex-wrap lg:gap-3 gap-2 lg:mb-6 mb-4 navv">
 				<?php foreach ($whys as $k => $why) : ?>
-					<div data-wow-duration="1.5s" data-wow-delay="<?php echo $k * 0.25; ?>s" class="col md:flex-[0_0_24%] flex-[0_0_100%] wow fadeInUp nav-item" data-state="<?php echo $k == 0 ? 'true' : 'false' ?>" id="step-tab-<?php echo $k; ?>" data-target="#step-<?php echo $k; ?>">
+					<div data-wow-duration="1.5s" data-wow-delay="<?php echo $k * 0.25; ?>s" class="item-toogle col md:flex-[0_0_24%] flex-[0_0_100%] wow fadeInUp nav-item" data-state="<?php echo $k == 0 ? 'true' : 'false' ?>" id="step-tab-<?php echo $k; ?>" data-target="#step-<?php echo $k; ?>">
 						<div class="roboc item-step text-center font-bold p-[0.5rem] bg-blue hover:bg-yellow text-yellow hover:text-blue text-yellow relative z-5 transition-all">
 							<span class="number block lg:text-[5.275rem] md:text-[3.75rem] text-[2.5rem] mb-1 roboc"><?php echo _cget('name_why', $why); ?></span>
 							<p class="block md:text-[1.25rem] text-[1.05rem]">
@@ -105,9 +116,39 @@
 							</p>
 						</div>
 					</div>
+					<div class="content bg-yellow flex flex-wrap relative z-1 item-tab lg:p-[3.4375rem] md:p-[2.4375rem] p-[1.4375rem] justify-between <?php echo $k == 0 ? 'flex' : 'hidden' ?>">
+						<div class="col lg:flex-[0_0_60%] flex-[0_0_100%]">
+							<div class="image">
+								<?php $imgsFull = _cget('why_img_desktop', $why, []); ?>
+								<?php if (!empty($imgsFull)) : ?>
+									<?php foreach ($imgsFull as $k2 => $img) : ?>
+										<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_why', $why); ?>" class="block mx-auto md:max-w-[41.875rem] md:max-h-[41.875rem]" />
+									<?php endforeach; ?>
+								<?php endif; ?>
+							</div>
+						</div>
+						<?php $benefits = _cget('whys-item-detail', $why) ?>
+						<?php if ($benefits != "") : ?>
+							<div class="col lg:flex-[0_0_37.5%] flex-[0_0_100%] flex flex-wrap items-center justify-center md:mt-0 mt-3">
+								<?php foreach ($benefits as $k1 => $benefit) : ?>
+									<div class="lg:block flex items-center item_why mb-3">
+										<?php $imgsIcon = _cget('why_icon_desktop', $benefit, []); ?>
+										<?php if (!empty($imgsIcon)) : ?>
+											<?php foreach ($imgsIcon as $k2 => $img) : ?>
+												<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_why', $why); ?>" class="w-[6.25rem] h-[6.25rem] block mx-auto" />
+											<?php endforeach; ?>
+										<?php endif; ?>
+										<p class="lg:text-[1.125rem] text-base md:mt-3 mt-0 lg:pl-0 pl-3">
+											<?php echo _cget('why_detail_short_desc', $benefit); ?>
+										</p>
+									</div>
+								<?php endforeach; ?>
+							</div>
+						<?php endif; ?>
+					</div>
 				<?php endforeach; ?>
 			</div>
-			<div class="tabs bg-[#FAD52C] panel">
+			<div class="tabs bg-[#FAD52C] panel lg:block hidden">
 				<?php foreach ($whys as $k => $why) : ?>
 					<div data-state="<?php echo $k == 0 ? 'true' : 'false' ?>" id="step-<?php echo $k; ?>" class="tab-panel flex flex-wrap relative z-1 item-tab lg:p-[3.4375rem] md:p-[2.4375rem] p-[1.4375rem] justify-between <?php echo $k == 0 ? 'flex' : 'hidden' ?>">
 						<div class="col lg:flex-[0_0_60%] flex-[0_0_100%]">
@@ -210,7 +251,7 @@
 <?php $videos = rwmb_meta('videos-item', array('object_type' => 'setting'), 'my_options'); ?>
 <?php if (!empty($videos)) : ?>
 	<section class="section-video bg-[#FFFDF1] lg:py-[2.5rem] py-[1.75rem] relative z-10">
-		<div class="banner mb-3 wow fadeIn">
+		<div class="banner container mb-3 wow fadeIn">
 			<img src="<?php echo mb_image("banner_video"); ?>" class="w-full" alt="Video" />
 		</div>
 		<div class="container mx-auto px-3 relative z-1">
