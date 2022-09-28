@@ -69,7 +69,7 @@
 								<?php echo _cget('step_short_desc', $step); ?>
 							</div>
 						</div>
-						<div class="content <?php echo $k == 0 ? 'lg:hidden block' : 'hidden' ?> item-large pt-[2rem] px-[1.225rem] pb-[1rem] bg-yellow lg:h-full wow fadeInRight" ata-wow-duration="1s" data-wow-delay="0.5s">
+						<div class="content <?php echo $k == 0 ? 'lg:hidden block' : 'hidden' ?> item-large pt-[2rem] px-[1.225rem] pb-[1rem] bg-yellow lg:h-full" ata-wow-duration="1s" data-wow-delay="0.5s">
 							<div class="short xl:text-[1.5rem] text-[1.25rem] lg:mb-5 mb-3">
 								<?php echo _cget('step_full_desc', $step); ?>
 							</div>
@@ -83,7 +83,7 @@
 					<?php endforeach; ?>
 				</div>
 				<div class="col md:flex-[0_0_39%] flex-[0_0_100%] lg:block hidden">
-					<div class="item-large pt-[2rem] px-[1.225rem] pb-[1rem] bg-yellow h-full wow fadeInRight" ata-wow-duration="1s" data-wow-delay="0.5s">
+					<div class="item-large pt-[2rem] px-[1.225rem] pb-[1rem] bg-yellow h-full" ata-wow-duration="1s" data-wow-delay="0.5s">
 						<div class="short xl:text-[1.5rem] text-[1.25rem] lg:mb-5 mb-3">
 							<?php echo _cget('step_full_desc', $steps[0]); ?>
 						</div>

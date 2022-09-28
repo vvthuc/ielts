@@ -1,4 +1,4 @@
-<footer class="bg-[#FFD602] lg:py-[2rem] py-[1.5rem] lg:pb-0 pb-0 md:pb-0">
+<footer class="bg-[#FFD602] lg:py-[2rem] py-[1.5rem] lg:pb-0git pb-0 md:pb-0">
     <div class="container px-3 mx-auto lg:pb-[2rem] pb-[1.5rem]">
         <a href="<?php echo site_url(); ?>" title="<?php echo bloginfo(); ?>" class="block mx-auto w-fit lg:mb-[1.875rem] mb-3">
             <img src="<?php echo mb_image("logo_footer"); ?>" alt="<?php echo bloginfo(); ?>" class="w-[160px] h-[6.25rem] object-contain" />
