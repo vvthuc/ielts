@@ -28,6 +28,7 @@ function tech_settings_pages($settings_pages)
             'sale-setting' => 'Thông tin khuyến mãi',
             'questions-setting' => 'Câu hỏi thường gặp',
             'form-setting' => 'Form thông tin',
+            'feels-setting' => 'Cảm nhận học viên',
         ),
     );
     return $settings_pages;
@@ -327,6 +328,11 @@ function tech_options_meta_boxes_general($meta_boxes)
                         'type' => 'text',
                     ),
                     array(
+                        'name' => 'Chức vụ',
+                        'id' => 'pos_teacher',
+                        'type' => 'text',
+                    ),
+                    array(
                         'name' => 'Hình ảnh',
                         'id' => 'teacher_icon_desktop',
                         'type' => 'image_advanced',
@@ -419,6 +425,46 @@ function tech_options_meta_boxes_general($meta_boxes)
                     array(
                         'name' => 'Ảnh',
                         'id' => 'img_video',
+                        'type' => 'image_advanced',
+                        'max_file_uploads' => 1,
+                        'class' => 'hc-normal',
+                        'image_size' => '',
+                    ),
+                ),
+            ),
+        ),
+    );
+    $meta_boxes[] = array(
+        'id' => 'feels-all',
+        'title' => 'Video',
+        'settings_pages' => 'tech-home',
+        'tab' => 'feels-setting',
+        'fields' => array(
+            array(
+                'name' => 'Cảm nhận học viên',
+                'id' => 'feels-item',
+                'type' => 'group',
+                'clone' => true,
+                'sort_clone' => true,
+                'fields' => array(
+                    array(
+                        'name' => 'Tên học viên',
+                        'id' => 'name_student',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'name' => 'Cảm nhận',
+                        'id' => 'short_student',
+                        'type' => 'textarea',
+                    ),
+                    array(
+                        'name' => 'Điểm số',
+                        'id' => 'point_student',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'name' => 'Ảnh',
+                        'id' => 'img_student',
                         'type' => 'image_advanced',
                         'max_file_uploads' => 1,
                         'class' => 'hc-normal',

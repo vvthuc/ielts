@@ -109,7 +109,7 @@
 			<div class="flex flex-wrap lg:gap-3 gap-2 lg:mb-6 mb-4 navv">
 				<?php foreach ($whys as $k => $why) : ?>
 					<div data-wow-duration="1.5s" data-wow-delay="<?php echo $k * 0.25; ?>s" class="item-toogle col md:flex-[0_0_24%] flex-[0_0_100%] wow fadeInUp nav-item" data-state="<?php echo $k == 0 ? 'true' : 'false' ?>" id="step-tab-<?php echo $k; ?>" data-target="#step-<?php echo $k; ?>">
-						<div class="roboc item-step text-center font-bold p-[0.5rem] bg-blue hover:bg-yellow text-yellow hover:text-blue text-yellow relative z-5 transition-all">
+						<div class="roboc h-full item-step text-center font-bold p-[0.5rem] bg-blue hover:bg-yellow text-yellow hover:text-blue text-yellow relative z-5 transition-all">
 							<span class="number block lg:text-[5.275rem] md:text-[3.75rem] text-[2.5rem] mb-1 roboc"><?php echo _cget('name_why', $why); ?></span>
 							<p class="block md:text-[1.25rem] text-[1.05rem]">
 								<?php echo _cget('why_short_desc', $why); ?>
@@ -203,9 +203,12 @@
 					<div class="swiper-wrapper">
 						<?php foreach ($teachers as $k => $teacher) : ?>
 							<div class="swiper-slide">
-								<div data-wow-duration="1s" data-wow-delay="<?php echo $k * 0.25 ?>s" class="item-teacher text-[#FDD501] bg-yellow px-[1.25rem] py-[2rem] wow fadeInUp">
-									<p class="md:text-[1.725rem] text-[1.25rem] text-blue font-black uppercase lg:mb-3 mb-2 roboc">
+								<div data-wow-duration="1s" data-wow-delay="<?php echo $k * 0.25 ?>s" class="lg:min-h-[25rem] lg:flex flex-wrap items-center item-teacher text-[#FDD501] bg-yellow px-[1.25rem] py-[2rem] wow fadeInUp">
+									<p class="md:text-[1.725rem] text-[1.25rem] text-blue font-black uppercase lg:mb-2 mb-1 roboc">
 										<?php echo _cget('name_teacher', $teacher); ?>
+									</p>
+									<p class="md:text-[1.125rem] text-[1rem] text-[#252525] font-black uppercase lg:mb-3 mb-2 italic">
+										<?php echo _cget('pos_teacher', $teacher); ?>
 									</p>
 									<div class="s-content text-[#3F4C55] md:text-[1.125rem] text-base">
 										<?php echo _cget('desc_teacher', $teacher); ?>
@@ -248,29 +251,35 @@
 		</div>
 	</section>
 <?php endif; ?>
-<?php $videos = rwmb_meta('videos-item', array('object_type' => 'setting'), 'my_options'); ?>
-<?php if (!empty($videos)) : ?>
-	<section class="section-video bg-[#FFFDF1] lg:py-[2.5rem] py-[1.75rem] relative z-10">
-		<div class="banner container mb-3 wow fadeIn">
-			<img src="<?php echo mb_image("banner_video"); ?>" class="w-full" alt="Video" />
-		</div>
-		<div class="container mx-auto px-3 relative z-1">
-			<div class="swiper swiper-video">
+<section class="section-video bg-[#FFFDF1] lg:py-[2.5rem] py-[1.75rem] relative z-10">
+	<div class="banner container mb-3 wow fadeIn">
+		<img src="<?php echo mb_image("banner_video"); ?>" class="w-full" alt="Video" />
+	</div>
+	<?php $feels = rwmb_meta('feels-item', array('object_type' => 'setting'), 'my_options'); ?>
+	<?php if (!empty($feels)) : ?>
+		<div class="feels container px-3 mx-auto relative z-10 xl:mb-[2.5rem] lg:mb-[1.875rem] mb-5">
+			<div class="swiper swiper-feels">
 				<div class="swiper-wrapper">
-					<?php foreach ($videos as $k => $video) : ?>
-						<div class="swiper-slide mb-4">
-							<div class="item-video lg:mr-4 wow fadeInDown relative z-1" data-wow-duration="1s" data-wow-delay="<?php echo $k * 0.25 ?>s">
-								<a href="<?php echo _cget('link_video', $video); ?>" title="<?php echo _cget('name_video', $video); ?>" class="block play-video relative" data-href="<?php echo _cget('link_video', $video); ?>">
-									<?php $imgs = _cget('img_video', $video, []); ?>
+					<?php foreach ($feels as $k => $feel) : ?>
+						<div class="swiper-slide">
+							<div class="item-feel">
+								<div class="box bg-white hover:bg-yellow transition-all p-4 mb-3 relative z-1">
+									<i class="fa fa-quote-left text-[1.5rem] absolute top-3 left-3 z-[1] text-justify" aria-hidden="true"></i>
+									<?php echo _cget('short_student', $feel); ?>
+									<i class="fa fa-quote-right text-[1.5rem] absolute bottom-3 right-3 z-[1]" aria-hidden="true"></i>
+								</div>
+								<div class="img mx-auto rounded rounded-[50%] overflow-hidden md:mb-3 mb-2 w-[12.5rem] h-[12.5rem]">
+									<?php $imgs = _cget('img_student', $feel, []); ?>
 									<?php if (!empty($imgs)) : ?>
 										<?php foreach ($imgs as $k2 => $img) : ?>
-											<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_video', $video); ?>" class="w-full" />
+											<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_student', $feel); ?>" class="w-full h-full object-cover" />
 										<?php endforeach; ?>
 									<?php endif; ?>
-									<svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24" width="24px" height="24px" fill-rule="evenodd">
-										<path fill-rule="evenodd" d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
-									</svg>
-								</a>
+								</div>
+								<div class="text-center">
+									<p class="name lg:text-[1.125rem] text-base font-bold mb-1 roboc"><?php echo _cget('name_student', $feel); ?></p>
+									<span class="pos md:text-base text-sm"><?php echo _cget('point_student', $feel); ?></span>
+								</div>
 							</div>
 						</div>
 					<?php endforeach; ?>
@@ -279,13 +288,48 @@
 			<div class="swiper-control w-[3rem] bg-[#fff] hover:bg-yellow transition-all rounded-[50%]  h-[3rem] flex items-center justify-center absolute top-[50%] -translate-y-[50%] swiper-prev z-[5] left-0">
 				<i class="fa fa-angle-left" aria-hidden="true"></i>
 			</div>
-			<div class="swiper-pagi static blue"></div>
+			<div class="swiper-pagi static blue mt-3"></div>
 			<div class="swiper-control w-[3rem] bg-[#fff] hover:bg-yellow transition-all rounded-[50%]  h-[3rem] flex items-center justify-center absolute top-[50%] -translate-y-[50%] swiper-next z-[5] right-0">
 				<i class="fa fa-angle-right" aria-hidden="true"></i>
 			</div>
 		</div>
-	</section>
-<?php endif; ?>
+	<?php endif; ?>
+	<?php $videos = rwmb_meta('videos-item', array('object_type' => 'setting'), 'my_options'); ?>
+	<?php if (!empty($videos)) : ?>
+		<div class="videos">
+			<div class="container mx-auto px-3 relative z-1">
+				<div class="swiper swiper-video">
+					<div class="swiper-wrapper">
+						<?php foreach ($videos as $k => $video) : ?>
+							<div class="swiper-slide mb-4">
+								<div class="item-video lg:mr-4 wow fadeInDown relative z-1" data-wow-duration="1s" data-wow-delay="<?php echo $k * 0.25 ?>s">
+									<a href="<?php echo _cget('link_video', $video); ?>" title="<?php echo _cget('name_video', $video); ?>" class="block play-video relative" data-href="<?php echo _cget('link_video', $video); ?>">
+										<?php $imgs = _cget('img_video', $video, []); ?>
+										<?php if (!empty($imgs)) : ?>
+											<?php foreach ($imgs as $k2 => $img) : ?>
+												<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_video', $video); ?>" class="w-full" />
+											<?php endforeach; ?>
+										<?php endif; ?>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24" width="24px" height="24px" fill-rule="evenodd">
+											<path fill-rule="evenodd" d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				</div>
+				<div class="swiper-control w-[3rem] bg-[#fff] hover:bg-yellow transition-all rounded-[50%]  h-[3rem] flex items-center justify-center absolute top-[50%] -translate-y-[50%] swiper-prev z-[5] left-0">
+					<i class="fa fa-angle-left" aria-hidden="true"></i>
+				</div>
+				<div class="swiper-pagi static blue"></div>
+				<div class="swiper-control w-[3rem] bg-[#fff] hover:bg-yellow transition-all rounded-[50%]  h-[3rem] flex items-center justify-center absolute top-[50%] -translate-y-[50%] swiper-next z-[5] right-0">
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
+</section>
 
 <section class="banner relative z-1 py-[1.875rem] bg-blue" style="
                 background-image: url(<?php echo mb_image("bg_sale_img_desktop"); ?>);
@@ -349,7 +393,7 @@
 				<img src="<?php echo mb_image("form_img_desktop"); ?>" alt="Gửi liên hệ" class="w-[15.625rem] h-[15.625rem] mx-auto block object-contain md:mb-4 mb-3" />
 				<?php $coupons = rwmb_meta('forms-item', array('object_type' => 'setting'), 'my_options'); ?>
 				<?php if (!empty($coupons)) : ?>
-					<div class="ls">
+					<div class="ls lg:max-w-[30.75rem] mx-auto">
 						<?php foreach ($coupons as $k => $coupon) : ?>
 							<p class="relative z-1 text-[#586269] pl-[1.6875rem] lg:mb-4 mb-3">
 								<svg class="absolute top-0 left-0 w-[1.25rem] h-[1.25rem]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -366,7 +410,9 @@
 					<?php echo mb_option("title_contact"); ?>
 				</p>
 				<div class="form-action">
-					<?php echo do_shortcode('[contact-form-7 id="87" title="Liên hệ"]'); ?>
+					<div class="form border-blue border-[1px] md:p-[0.625rem]">
+						<?php echo do_shortcode('[contact-form-7 id="87" title="Liên hệ"]'); ?>
+					</div>
 					<div class="desc text-base lg:mt-[1.8125rem] md:mt-[1.575rem] mt-[1.25rem]">
 						<?php echo mb_option("des_contact"); ?>
 					</div>

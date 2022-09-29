@@ -67,10 +67,18 @@ body {
     transition: 0.3s all 0s;
 }
 
+.item-feel .box {
+    padding: 2.1875rem 2.7rem;
+}
+
+.item-feel .box i {
+    color: #eeeeee;
+}
+
 .form-action input[type='text'], .form-action select {
     width: 100%;
     border: solid 2px #00508f;
-    height: 2.5rem;
+    height: 3rem;
     padding: 0.3125rem 0.625rem;
     margin-bottom: 0.7813rem;
 }

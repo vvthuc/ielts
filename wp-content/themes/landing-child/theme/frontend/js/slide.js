@@ -85,14 +85,9 @@ var SLIDER = (function () {
     var _initVideo = function () {
         const slideVideo = new Swiper(".swiper-video", {
             slidesPerView: 3,
-            // autoplay: {
-            //     delay: 3000,
-            //     disableOnInteraction: false,
-            //     pauseOnMouseEnter: true,
-            // },
             navigation: {
-                nextEl: ".section-video .swiper-next",
-                prevEl: ".section-video .swiper-prev",
+                nextEl: ".videos .swiper-next",
+                prevEl: ".videos .swiper-prev",
             },
             breakpoints: {
                 320: {
@@ -128,7 +123,44 @@ var SLIDER = (function () {
             },
             spaceBetween: 0,
             pagination: {
-                el: ".section-video .swiper-pagi",
+                el: ".videos .swiper-pagi",
+                clickable: true,
+            },
+        });
+    };
+    var _initFeels = function () {
+        const slideFeel = new Swiper(".swiper-feels", {
+            slidesPerView: 3,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            navigation: {
+                nextEl: ".feels .swiper-next",
+                prevEl: ".feels .swiper-prev",
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1.5,
+                    spaceBetween: 10,
+                },
+                576: {
+                    slidesPerView: 2,
+                    spaceBetween: 15,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 15,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+            },
+            spaceBetween: 0,
+            pagination: {
+                el: ".feels .swiper-pagi",
                 clickable: true,
             },
         });
@@ -211,6 +243,7 @@ var SLIDER = (function () {
             _initPartner();
             _initFaq();
             _initHover();
+            _initFeels();
             _toggleContent();
             loadEffectWow();
             fixedMenu();
