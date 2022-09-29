@@ -74,11 +74,6 @@ function tech_options_meta_boxes_general($meta_boxes)
                 'sanitize_callback' => 'none',
             ),
             array(
-                'name' => 'Zalo',
-                'id' => 'zalo',
-                'type' => 'text',
-            ),
-            array(
                 'name' => 'Hotline',
                 'id' => 'hotline',
                 'type' => 'text',

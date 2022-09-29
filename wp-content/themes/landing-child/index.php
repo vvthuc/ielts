@@ -262,7 +262,7 @@
 				<div class="swiper-wrapper">
 					<?php foreach ($feels as $k => $feel) : ?>
 						<div class="swiper-slide">
-							<div class="item-feel">
+							<div class="item-feel wow fadeInUp" data-wow-duration="1s" data-wow-delay="<?php echo $k * 0.25 ?>s">
 								<div class="box bg-white hover:bg-yellow transition-all p-4 mb-3 relative z-1">
 									<i class="fa fa-quote-left text-[1.5rem] absolute top-3 left-3 z-[1] text-justify" aria-hidden="true"></i>
 									<?php echo _cget('short_student', $feel); ?>

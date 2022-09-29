@@ -27,7 +27,7 @@
     </div>
     <div class="copy-right bg-[#fff] xl:py-[1.25rem] py-[0.9375rem]">
         <div class="container mx-auto px-3">
-            <p class="text-base text-center font-bold">
+            <p class="text-base text-center roboc">
                 <?php echo mb_option("copy_right") ?>
             </p>
         </div>
