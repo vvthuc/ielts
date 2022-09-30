@@ -609,6 +609,12 @@ function tech_options_meta_boxes_general($meta_boxes)
                         'image_size' => '',
                     ),
                     array(
+                        'name' => 'Video',
+                        'id' => 'why_detail_video',
+                        'type' => 'text',
+                        'size' => 100,
+                    ),
+                    array(
                         'name' => 'Nội dung',
                         'id' => 'whys-item-detail',
                         'type' => 'group',

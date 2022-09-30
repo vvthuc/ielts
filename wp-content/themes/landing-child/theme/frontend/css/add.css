@@ -264,6 +264,23 @@ body {
     opacity: 0;
 }
 
+.section-why .play-video {
+    position: relative;
+    z-index: 1;
+}
+
+.section-why .play-video:after {
+    content: '\f16a';
+    font-family: 'FontAwesome';
+    font-size: 48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #f70707;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
 .item-video .play-video:after {
     position: absolute;
     z-index: 1;

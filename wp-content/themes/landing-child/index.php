@@ -62,7 +62,7 @@
 							<?php $imgsIcon = _cget('step_icon_desktop', $step, []); ?>
 							<?php if (!empty($imgsIcon)) : ?>
 								<?php foreach ($imgsIcon as $k2 => $img) : ?>
-									<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_step', $step); ?>" class="w-[[6.25rem] h-[[6.25rem] block mx-auto md:mb-[0.9375rem] mb-[0.625rem]" />
+									<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_step', $step); ?>" class="w-[6.25rem] h-[6.25rem] object-contain block mx-auto md:mb-[0.9375rem] mb-[0.625rem]" />
 								<?php endforeach; ?>
 							<?php endif; ?>
 							<div class="short xl:text-[1.5rem] text-[1.25rem] md:text-blue text-white md:min-h-[7.25rem]">
@@ -118,7 +118,7 @@
 					</div>
 					<div class="<?php echo $k == 0 ? 'md:hidden flex' : 'hidden' ?> content bg-yellow flex flex-wrap relative z-1 item-tab lg:p-[3.4375rem] md:p-[2.4375rem] p-[1.4375rem] justify-between">
 						<div class="col lg:flex-[0_0_60%] flex-[0_0_100%]">
-							<div class="image">
+							<div class="image ?!">
 								<?php $imgsFull = _cget('why_img_desktop', $why, []); ?>
 								<?php if (!empty($imgsFull)) : ?>
 									<?php foreach ($imgsFull as $k2 => $img) : ?>
@@ -126,6 +126,19 @@
 									<?php endforeach; ?>
 								<?php endif; ?>
 							</div>
+							<?php
+							$videoWhy = _cget('why_detail_video', $why);
+							?>
+							<?php if ($videoWhy != "") : ?>
+								<a class="play-video" href="<?php echo _cget('why_detail_video', $why); ?>" data-href="<?php echo _cget('why_detail_video', $why); ?>">
+									<?php $imgsFull = _cget('why_img_desktop', $why, []); ?>
+									<?php if (!empty($imgsFull)) : ?>
+										<?php foreach ($imgsFull as $k2 => $img) : ?>
+											<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_why', $why); ?>" class="block mx-auto md:max-w-[41.875rem] md:max-h-[41.875rem]" />
+										<?php endforeach; ?>
+									<?php endif; ?>
+								</a>
+							<?php endif; ?>
 						</div>
 						<?php $benefits = _cget('whys-item-detail', $why) ?>
 						<?php if ($benefits != "") : ?>
@@ -135,7 +148,7 @@
 										<?php $imgsIcon = _cget('why_icon_desktop', $benefit, []); ?>
 										<?php if (!empty($imgsIcon)) : ?>
 											<?php foreach ($imgsIcon as $k2 => $img) : ?>
-												<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_why', $why); ?>" class="w-[6.25rem] h-[6.25rem] block mx-auto" />
+												<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_why', $why); ?>" class="w-[6.25rem] h-[6.25rem] object-contain block mx-auto" />
 											<?php endforeach; ?>
 										<?php endif; ?>
 										<p class="lg:text-[1.125rem] text-base md:mt-3 mt-0 lg:pl-0 pl-3">
@@ -160,6 +173,19 @@
 									<?php endforeach; ?>
 								<?php endif; ?>
 							</div>
+							<?php
+							$videoWhy = _cget('why_detail_video', $why);
+							?>
+							<?php if ($videoWhy != "") : ?>
+								<a class="play-video" href="<?php echo _cget('why_detail_video', $why); ?>" data-href="<?php echo _cget('why_detail_video', $why); ?>">
+									<?php $imgsFull = _cget('why_img_desktop', $why, []); ?>
+									<?php if (!empty($imgsFull)) : ?>
+										<?php foreach ($imgsFull as $k2 => $img) : ?>
+											<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_why', $why); ?>" class="block mx-auto md:max-w-[41.875rem] md:max-h-[41.875rem]" />
+										<?php endforeach; ?>
+									<?php endif; ?>
+								</a>
+							<?php endif; ?>
 						</div>
 						<?php $benefits = _cget('whys-item-detail', $why) ?>
 						<?php if ($benefits != "") : ?>
@@ -169,7 +195,7 @@
 										<?php $imgsIcon = _cget('why_icon_desktop', $benefit, []); ?>
 										<?php if (!empty($imgsIcon)) : ?>
 											<?php foreach ($imgsIcon as $k2 => $img) : ?>
-												<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_why', $why); ?>" class="w-[6.25rem] h-[6.25rem] block mx-auto" />
+												<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_why', $why); ?>" class="w-[6.25rem] h-[6.25rem] object-contain block mx-auto" />
 											<?php endforeach; ?>
 										<?php endif; ?>
 										<p class="lg:text-[1.125rem] text-base md:mt-3 mt-0 lg:pl-0 pl-3">
