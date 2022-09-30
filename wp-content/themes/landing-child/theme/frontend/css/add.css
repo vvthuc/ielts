@@ -69,6 +69,12 @@ body {
 
 .item-feel .box {
     padding: 2.1875rem 2.7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
 }
 
 .item-feel .box i {
