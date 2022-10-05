@@ -1,5 +1,10 @@
 <?php
 define('CPATHCHILD', get_stylesheet_directory() . '/inc');
+require_once(CPATHCHILD . '/admin.php');
+require_once(CPATHCHILD . '/common.php');
+require_once(CPATHCHILD . '/pagination.php');
+require_once(CPATHCHILD . '/setting_pages.php');
+require_once(CPATHCHILD . '/custom_posttype.php');
 if (!function_exists('theme_setup')) :
     function theme_setup()
     {
