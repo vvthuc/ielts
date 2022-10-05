@@ -316,7 +316,12 @@ body {
 .play-video.play:after {
     display: none;
 }
-
+.et_pb_bg_layout_light {
+    background: #01518e;
+    color: #fff;
+    display: inline-block;
+    padding: 10px 15px;
+}
 .item-video svg {
     position: absolute;
     top: 50%;
@@ -378,6 +383,7 @@ body {
     .section-teacher .item-teacher .center {
         padding-top: 8.65rem;
         padding-bottom: 8.65rem;
+        min-height: 37.5rem;
     }
 }
 
@@ -392,6 +398,7 @@ body {
     .section-teacher .item-teacher .center {
         padding-top: 5.85rem;
         padding-bottom: 5.85rem;
+        min-height: 31rem;
     }
 }
 
@@ -399,6 +406,7 @@ body {
     .section-teacher .item-teacher .center {
         padding-top: 5.85rem;
         padding-bottom: 5.85rem;
+        min-height: inherit;
     }
 }
 

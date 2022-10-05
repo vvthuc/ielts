@@ -609,6 +609,14 @@ function tech_options_meta_boxes_general($meta_boxes)
                         'image_size' => '',
                     ),
                     array(
+                        'name' => 'Hình ảnh video',
+                        'id' => 'why_video_desktop',
+                        'type' => 'image_advanced',
+                        'max_file_uploads' => 1,
+                        'class' => 'hc-normal',
+                        'image_size' => '',
+                    ),
+                    array(
                         'name' => 'Video',
                         'id' => 'why_detail_video',
                         'type' => 'text',
