@@ -28,7 +28,9 @@
 										<div class="short text-base text-white">
 											<?php echo _cget('desc_banner', $banner); ?>
 										</div>
-										<a href="<?php echo _cget('banner_link', $banner); ?>" title="Xem ngay" class="btn inline-block lg:text-xl md:text-base text-sm xl:mt-[7.3125rem] lg:mt-[5.3125rem] mt-[2.3125rem] bg-yellow p-3 rounded rounded-[0.625rem] px-24">Xem ngay</a>
+										<?php if (_cget('banner_link', $banner) != "") : ?>
+											<a href="<?php echo _cget('banner_link', $banner); ?>" title="Xem ngay" class="btn inline-block lg:text-xl md:text-base text-sm xl:mt-[7.3125rem] lg:mt-[5.3125rem] mt-[2.3125rem] bg-yellow p-3 rounded rounded-[0.625rem] px-24">Xem ngay</a>
+										<?php endif; ?>
 									</div>
 								</div>
 							</div>
@@ -58,7 +60,7 @@
 							<?php endforeach; ?>
 						<?php endif; ?>
 
-						<div data-wow-duration="1.5s" data-wow-delay="<?php echo $k * 0.125; ?>s" class="wow flipInY item item-toogle md:p-[1.25rem] md:flex-[0_0_48.50%] flex-[0_0_100%] p-[0.75rem] md:bg-[#FDF2B2] bg-blue hover:bg-[#FDD501]" data-img="<?php echo $imgFull ?? ""; ?>" data-content="<?php echo _cget('step_full_desc', $step); ?>" data-content="<?php echo $imgFull ?? ''; ?>">
+						<div data-wow-duration="1.5s" data-wow-delay="<?php echo $k * 0.125; ?>s" class="wow flipInY item item-toogle md:p-[1.25rem] md:flex-[0_0_48.50%] flex-[0_0_100%] p-[0.75rem] md:bg-[#FDF2B2] bg-blue hover:bg-[#FDD501] <?php echo $k == 0 ? 'active' : '' ?>" data-img="<?php echo $imgFull ?? ""; ?>" data-content="<?php echo _cget('step_full_desc', $step); ?>" data-content="<?php echo $imgFull ?? ''; ?>">
 							<?php $imgsIcon = _cget('step_icon_desktop', $step, []); ?>
 							<?php if (!empty($imgsIcon)) : ?>
 								<?php foreach ($imgsIcon as $k2 => $img) : ?>
@@ -191,14 +193,14 @@
 						<?php if ($benefits != "") : ?>
 							<div class="col lg:flex-[0_0_37.5%] flex-[0_0_100%] flex flex-wrap items-center justify-center md:mt-0 mt-3">
 								<?php foreach ($benefits as $k1 => $benefit) : ?>
-									<div class="lg:block flex items-center item_why mb-3">
+									<div class="flex items-center item_why mb-3">
 										<?php $imgsIcon = _cget('why_icon_desktop', $benefit, []); ?>
 										<?php if (!empty($imgsIcon)) : ?>
 											<?php foreach ($imgsIcon as $k2 => $img) : ?>
 												<img src="<?php echo wp_get_attachment_image_url($img, 'full') ?>" alt="<?php echo _cget('name_why', $why); ?>" class="w-[6.25rem] h-[6.25rem] object-contain block mx-auto" />
 											<?php endforeach; ?>
 										<?php endif; ?>
-										<p class="lg:text-[1.125rem] text-base md:mt-3 mt-0 lg:pl-0 pl-3">
+										<p class="lg:text-[1.125rem] text-base md:mt-3 mt-0 lg:pl-4 pl-3">
 											<?php echo _cget('why_detail_short_desc', $benefit); ?>
 										</p>
 									</div>
@@ -223,21 +225,23 @@
 		<div class="desc text-base text-[#7A838A] max-w-[53.125rem] mx-auto lg:mb-[1.875rem] mb-[0.9375rem] wow fadeInUp">
 			<?php echo mb_option("desc_teacher"); ?>
 		</div>
-		<div class="lg:flex flex-wrap gap-2 items-center">
-			<div class="col left lg:flex-[0_0_39%] flex-[0_0_100%] lg:max-w-[39%] lg:block hidden">
+		<div class="lg:flex flex-wrap gap-2">
+			<div class="col left lg:flex-[0_0_39%] flex-[0_0_100%] lg:max-w-[39%] lg:flex hidden h-auto">
 				<div class="swiper-teacher-main swiper">
 					<div class="swiper-wrapper">
 						<?php foreach ($teachers as $k => $teacher) : ?>
 							<div class="swiper-slide">
-								<div data-wow-duration="1s" data-wow-delay="<?php echo $k * 0.25 ?>s" class="lg:min-h-[25rem] lg:flex flex-wrap items-center item-teacher text-[#FDD501] bg-yellow px-[1.25rem] py-[2rem] wow fadeInUp">
-									<p class="md:text-[1.725rem] text-[1.25rem] text-blue font-black uppercase lg:mb-2 mb-1 roboc">
-										<?php echo _cget('name_teacher', $teacher); ?>
-									</p>
-									<p class="md:text-[1.125rem] text-[1rem] text-[#252525] font-black uppercase lg:mb-3 mb-2 italic">
-										<?php echo _cget('pos_teacher', $teacher); ?>
-									</p>
-									<div class="s-content text-[#3F4C55] md:text-[1.125rem] text-base">
-										<?php echo _cget('desc_teacher', $teacher); ?>
+								<div data-wow-duration="1s" data-wow-delay="<?php echo $k * 0.25 ?>s" class="h-full lg:min-h-[25rem] lg:flex flex-wrap items-center item-teacher text-[#FDD501] bg-yellow wow fadeInUp">
+									<div class="center px-[1.25rem]">
+										<p class="md:text-[1.725rem] text-[1.25rem] text-blue font-black uppercase lg:mb-2 mb-1 roboc w-full">
+											<?php echo _cget('name_teacher', $teacher); ?>
+										</p>
+										<p class="md:text-[1.125rem] text-[1rem] text-[#252525] font-black uppercase lg:mb-3 mb-2 italic w-full">
+											<?php echo _cget('pos_teacher', $teacher); ?>
+										</p>
+										<div class="s-content text-[#3F4C55] md:text-[1.125rem] text-base">
+											<?php echo _cget('desc_teacher', $teacher); ?>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -411,11 +415,11 @@
 		</div>
 	</section>
 <?php endif; ?>
-<section class="section-form bg-cover bg-postion-center py-[1.5625rem] bg-yellow" id="contact-now" style="background-image: url(<?php echo mb_image("bg_form_img_desktop"); ?>);background-position: center;background-size: cover;">
+<section class="section-form bg-cover bg-postion-center py-[2.5625rem] bg-yellow" id="contact-now" style="background-image: url(<?php echo mb_image("bg_form_img_desktop"); ?>);background-position: center;background-size: cover;">
 	<div class="container mx-auto px-3">
 		<div class="grid grid-cols-2 lg:gap-4 md:gap-3 gap-2">
 			<div class="md:col-span-1 col-span-2 wow fadeInUp">
-				<a href="tel:<?php echo mb_option("hotline"); ?>" title="<?php echo mb_option("hotline"); ?>" class="md:text-base text-[1.125rem] w-fit block mx-auto text-blue mb-3 text-center font-bold">Hotline: <?php echo mb_option("hotline"); ?></a>
+				<a href="tel:<?php echo mb_option("hotline"); ?>" title="<?php echo mb_option("hotline"); ?>" class="md:text-[1.5rem] text-[1.125rem] w-fit block mx-auto text-blue mb-4 text-center font-bold">Hotline: <?php echo mb_option("hotline"); ?></a>
 				<img src="<?php echo mb_image("form_img_desktop"); ?>" alt="Gửi liên hệ" class="w-[15.625rem] h-[15.625rem] mx-auto block object-contain md:mb-4 mb-3" />
 				<?php $coupons = rwmb_meta('forms-item', array('object_type' => 'setting'), 'my_options'); ?>
 				<?php if (!empty($coupons)) : ?>
@@ -432,11 +436,11 @@
 				<?php endif; ?>
 			</div>
 			<div class="md:col-span-1 col-span-2 wow fadeInUp">
-				<p class="w-fit block mx-auto text-blue mb-3 text-center font-bold md:text-base text-[1.125rem] uppercase">
+				<p class="w-fit block mx-auto text-blue mb-4 text-center font-bold md:text-[1.5rem] text-[1.125rem] uppercase">
 					<?php echo mb_option("title_contact"); ?>
 				</p>
 				<div class="form-action">
-					<div class="form border-blue border-[1px] md:p-[0.625rem]">
+					<div class="form border-blue border-[1px] p-[0.625rem]">
 						<?php echo do_shortcode('[contact-form-7 id="87" title="Liên hệ"]'); ?>
 					</div>
 					<div class="desc text-base lg:mt-[1.8125rem] md:mt-[1.575rem] mt-[1.25rem]">
@@ -450,7 +454,7 @@
 <?php $partners = rwmb_meta('partners-item', array('object_type' => 'setting'), 'my_options'); ?>
 <?php if (!empty($partners)) : ?>
 	<section class="section-partner lg:py-[2.5rem] py-[1.5625rem]">
-		<div class="box-partner max-w-[87.5rem] border-l-[1px] border-l-[#ebebeb] border-b-[1px] border-b-[#ebebeb] mx-auto">
+		<div class="box-partner max-w-[87.5rem] mx-auto">
 			<div class="container mx-auto px-3">
 				<div class="grid grid-cols-5 items-center">
 					<div class="col-span-2">

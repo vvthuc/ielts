@@ -176,6 +176,8 @@ var SLIDER = (function () {
             event.preventDefault();
             var _content = $(this).children(".s-content");
             _content.slideToggle(300);
+            $(this).addClass("show");
+            itemFaq.not(this).removeClass("show");
             contentFaq.not(_content).slideUp(300);
         });
     };
@@ -183,12 +185,18 @@ var SLIDER = (function () {
         var itemBuild = $(".section-start-build .item");
         var imgFull = $(".section-start-build .item-large .img-full");
         var imgShort = $(".section-start-build .item-large .short");
-        itemBuild.hover(function () {
-            var _text = $(this).attr("data-content");
-            var _img = $(this).attr("data-img");
-            imgShort.text(_text);
-            imgFull.attr("src", _img);
-        });
+        itemBuild.hover(
+            function () {
+                var _text = $(this).attr("data-content");
+                var _img = $(this).attr("data-img");
+                imgShort.text(_text);
+                imgFull.attr("src", _img);
+                $(this).addClass("active");
+            },
+            function () {
+                $(this).removeClass("active");
+            }
+        );
     };
     var fixedMenu = function () {
         optionMenu = {
