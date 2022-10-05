@@ -295,7 +295,9 @@
 							<div class="item-feel wow fadeInUp" data-wow-duration="1s" data-wow-delay="<?php echo $k * 0.25 ?>s">
 								<div class="box bg-white hover:bg-yellow transition-all p-4 mb-3 relative z-1">
 									<i class="fa fa-quote-left text-[1.5rem] absolute top-3 left-3 z-[1] text-justify" aria-hidden="true"></i>
-									<?php echo _cget('short_student', $feel); ?>
+									<div class="text">
+										<?php echo _cget('short_student', $feel); ?>
+									</div>
 									<i class="fa fa-quote-right text-[1.5rem] absolute bottom-3 right-3 z-[1]" aria-hidden="true"></i>
 								</div>
 								<div class="img mx-auto rounded rounded-[50%] overflow-hidden md:mb-3 mb-2 w-[12.5rem] h-[12.5rem]">

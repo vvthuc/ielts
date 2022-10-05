@@ -82,8 +82,8 @@ body {
     background: #ffd602;
 }
 
-.item-feel .box {
-    padding: 2.1875rem 2.7rem;
+.item-feel .box .text {
+    padding: 1.2rem 2rem;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
